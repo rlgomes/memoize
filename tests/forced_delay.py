@@ -22,16 +22,16 @@ class ForcedDelayTests(unittest.TestCase):
             self.forced_delay_normal(3,"hello world",[1,2,3,4,5,7,8,9,10]) 
         stop = time.time()
         normal_duration = (stop-start)*1000
-        print("\nforced_delay_normal: %dms" % normal_duration)
         
         start = time.time()
         for _ in range(0,10):
             self.forced_delay_memoized(3,"hello world",[1,2,3,4,5,7,8,9,10]) 
         stop = time.time()
         memoized_duration = (stop-start)*1000
-        print("\nforced_delay_memoized: %dms" % memoized_duration)
         
-        self.assertTrue(memoized_duration < normal_duration)
+        self.assertTrue(memoized_duration < normal_duration,
+                        msg="normal: %dms < memoized: %dms" % 
+                                            (normal_duration,memoized_duration))
 
 if __name__ == '__main__':
     runner = unittest.TextTestRunner(verbosity = 2)

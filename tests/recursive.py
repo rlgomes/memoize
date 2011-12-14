@@ -22,16 +22,16 @@ class RecursiveTests(unittest.TestCase):
             recursive_function_normal(value)
         stop = time.time()
         normal_duration = (stop-start) * 1000
-        print("\nsomefunc_normal: %dms" % normal_duration)
         
         start = time.time()
         for value in [10,20,30]:
             recursive_function_memoized(value)
         stop = time.time()
         memoized_duration = (stop-start) * 1000
-        print("\nsomefunc_memoized %dms" % memoized_duration)
         
-        self.assertTrue(memoized_duration < normal_duration)
+        self.assertTrue(memoized_duration < normal_duration,
+                        msg="normal: %dms < memoized: %dms" % 
+                                            (normal_duration,memoized_duration))
 
     def test_validate_return(self):
         for value in [1,2,3,4,5,20,30]:

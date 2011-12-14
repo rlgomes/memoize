@@ -1,8 +1,13 @@
 
 import unittest
 
+from overhead import OverheadTests
+
 def suite():
     suite = unittest.TestSuite()
+    
+    suite.addTest(unittest.makeSuite(OverheadTests))
+    
     return suite
 
 if __name__ == '__main__':

@@ -1,0 +1,28 @@
+Introduction
+------------
+
+Using memoize
+-------------
+
+The memoize library can be used to quickly add the memoization feature to any 
+existing function so that you can cache previously calculated results for the 
+same arguments but don't have to "clutter" your function code with memoization 
+specific code.
+
+Installing
+----------
+
+python setup.py install
+
+Running Built-In Tests
+-----------------------
+
+Go to the tests directory and you can run all the tests by executing:
+
+cd tests
+python all_tests.py
+
+License
+-------
+
+Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0.html)

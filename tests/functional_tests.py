@@ -3,7 +3,6 @@ import unittest
 
 from forced_delay import ForcedDelayTests 
 from recursive import RecursiveTests 
-from lookup import LookupTests
 from multiple_arguments import MultipleArgumentsTests
 
 def suite():
@@ -11,7 +10,6 @@ def suite():
     
     suite.addTest(unittest.makeSuite(ForcedDelayTests))
     suite.addTest(unittest.makeSuite(RecursiveTests))
-    suite.addTest(unittest.makeSuite(LookupTests))
     suite.addTest(unittest.makeSuite(MultipleArgumentsTests))
 
     return suite

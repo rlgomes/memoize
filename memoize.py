@@ -11,9 +11,7 @@ class memoize(object):
    
     def __call__(self, *args, **kwargs): 
         global memoize_cache
-        argkey = ""
-        for arg in args: argkey += str(arg)
-        for kwarg in kwargs: argkey += kwarg
+        argkey = (str(args),str(kwargs))
             
         if argkey in memoize_cache.keys():
             return memoize_cache[argkey]
