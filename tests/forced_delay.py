@@ -7,13 +7,13 @@ import unittest
 class ForcedDelayTests(unittest.TestCase):
 
     def forced_delay_normal(self,some_number,some_string,some_list):
-        time.sleep(0.1)
+        time.sleep(0.01)
         return some_number
 
     # also tests that this works on class objects
     @memoize
     def forced_delay_memoized(self,some_number,some_string,some_list):
-        time.sleep(0.1)
+        time.sleep(0.01)
         return some_number
 
     def test_validate_timing(self):

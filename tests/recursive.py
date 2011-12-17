@@ -34,7 +34,7 @@ class RecursiveTests(unittest.TestCase):
                                             (normal_duration,memoized_duration))
 
     def test_validate_return(self):
-        for value in [1,2,3,4,5,20,30]:
+        for value in [10,20,30]:
             self.assertEquals(recursive_function_normal(value),
                               recursive_function_memoized(value))
 

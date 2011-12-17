@@ -16,13 +16,13 @@ class MultipleArgumentsTests(unittest.TestCase):
 
     def test_validate_timing(self):
         start = time.time()
-        for _ in range(0,1024):
+        for _ in range(0,100):
             multiple_args_normal(3,"hello world",[1,2,3,4,5,7,8,9,10]) 
         stop = time.time()
         normal_duration = (stop-start)*1000
         
         start = time.time()
-        for _ in range(0,1024):
+        for _ in range(0,100):
             multiple_args_memoized(3,"hello world",[1,2,3,4,5,7,8,9,10]) 
         stop = time.time()
         memoized_duration = (stop-start) * 1000
