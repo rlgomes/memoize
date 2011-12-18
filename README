@@ -4,13 +4,34 @@ Introduction
 Using memoize
 -------------
 
+XXX: add definition of memoization from wikipedia here and then start to explain
+how this approach helps and what the drawbacks are (ie more memory usage but less
+cpu cycles).
+
 The memoize library can be used to quickly add the memoization feature to any 
 existing function so that you can cache previously calculated results for the 
 same arguments but don't have to "clutter" your function code to add the 
-memoization feature into your function. There is a pretty simple implementation
-of such a decorator in some of python's documentation but the implementation 
-itself is quite basic and won't handle a few of the use cases resolved with 
-this simple decorator.
+memoization feature into your function.
+
+There is a pretty simple implementation of such a decorator in some of python's 
+documentation but the implementation itself is quite basic and won't handle a 
+few of the use cases resolved with this simple decorator. Here is a list of the 
+reasons why I wouldn't use the example "memoized" decorator from the python 
+documentation:
+
+   1. It relies on exceptions being raised for it to decide to cache the current 
+      results from the function you had decorated. Relying on exceptions to be 
+      thrown to tests if something is on a cache is a bad design IMHO.
+      
+   2. The memoized decorator doesn't handle list types and a few others while
+      the memoize decorator can be used on any type that can be converted into 
+      a string by the str() function.
+      
+   3. The memoized decorator also doesn't handle the keyword arguments 
+   
+   4. The memoize decorator allows you to customize your argument hashing function
+      which controls how you match the arguments during the caching of results
+      previously calculated. The memoized decorator doesn't have this feature.
 
 The basic memoize decorator can be used quickly by just placing the "@memoize"
 decorator on the line above the function definition and there is also a 
@@ -28,10 +49,8 @@ def recursive_function_normal(arg):
 
 Now this function seems innocent enough but if you have a close look at the 
 recursive calls within this function you'll realize its quite a complex sum
-of the previous elements with the value of the current element. Its very similar
-to the fibonacci function but I added a few unnecessary complications just to 
-make this example more interesting. Now before adding the memoize decorator lets
-see how well this function scales:
+of the previous elements with the value of the current element. Now before 
+adding the memoize decorator lets see how well this function scales:
 
 recursive_function_normal(10) took 0ms
 recursive_function_normal(20) took 13ms
@@ -54,6 +73,9 @@ recursive_function_memoized(10) took 0ms
 recursive_function_memoized(20) took 0ms
 recursive_function_memoized(30) took 0ms
 recursive_function_memoized(32) took 0ms
+
+Even from scratch calculation 100 is very fast:
+
 recursive_function_memoized(100) took 2ms
 
 You might be scratching your head thinking this is impossible but just remember 
@@ -65,9 +87,10 @@ Of course there are situations where the normal memoize decorator isn't efficien
 enough when handling multiple arguments to your functions and when you have a 
 good grasp on how to uniquely encode the arguments being passed to your function
 in a simple string (ie hash) you can replace the built-in "hashing" mechanism 
-with your own custom one by using the "@memoize_with(handler_args)" declaration
-and then defining the handler_args with the same signature as the function you're
-attempting to memoize.
+with your own custom one by using the "@memoize_with(hash_args)" declaration
+and then defining the hash_args with the same signature as the function you're
+attempting to memoize. Here is a small example of how to write your own argument
+hashing function.
 
 Installing
 ----------

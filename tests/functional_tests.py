@@ -5,6 +5,7 @@ from forced_delay import ForcedDelayTests
 from recursive import RecursiveTests 
 from multiple_arguments import MultipleArgumentsTests
 from customization import CustomizationTests
+from comparison import ComparisonTests
 
 def suite():
     suite = unittest.TestSuite()
@@ -14,6 +15,7 @@ def suite():
     suite.addTest(unittest.makeSuite(MultipleArgumentsTests))
 
     suite.addTest(unittest.makeSuite(CustomizationTests))
+    suite.addTest(unittest.makeSuite(ComparisonTests))
 
     return suite
 
