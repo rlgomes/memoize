@@ -4,9 +4,11 @@ Introduction
 Using memoize
 -------------
 
-XXX: add definition of memoization from wikipedia here and then start to explain
-how this approach helps and what the drawbacks are (ie more memory usage but less
-cpu cycles).
+From wikipedia:
+
+"In computing, memoization is an optimization technique used primarily to speed 
+up computer programs by having function calls avoid repeating the calculation of
+results for previously processed inputs."
 
 The memoize library can be used to quickly add the memoization feature to any 
 existing function so that you can cache previously calculated results for the 
