@@ -1,6 +1,13 @@
+"""
+The basic memoize decorator can be used quickly by just placing the "@memoize"
+decorator on the line above the function definition and there is also a 
+"memoize_with" which allows the user to define the argument to unique string id
+transformation to be used when identify that the arguments being passed to your
+function are indeed the same argument combination that was used a while ago.
+"""
 
-global memoize_cache
-memoize_cache = {}
+global MEMOIZE_CACHE
+MEMOIZE_CACHE = {}
 
 class memoize(object):
     '''
@@ -14,14 +21,13 @@ class memoize(object):
         self.__f_get = self.__f.__get__
    
     def __call__(self, *args, **kwargs): 
-        global memoize_cache
-        argkey = (str(args),str(kwargs))
+        argkey = (str(args), str(kwargs))
             
-        if argkey in memoize_cache.keys():
-            return memoize_cache[argkey]
+        if argkey in MEMOIZE_CACHE.keys():
+            return MEMOIZE_CACHE[argkey]
         else:
             ret = self.__f(*args, **kwargs)
-            memoize_cache[argkey] = ret
+            MEMOIZE_CACHE[argkey] = ret
             return ret
         
     def __get__(self, obj, type=None):
@@ -58,17 +64,19 @@ class memoize_with(memoize):
         parent = self
         
         def new_f(*args, **kwargs): 
-            global memoize_cache
+            """ 
+            memoiziation magic
+            """
             if kwargs == {}:
                 argkey = parent.hash_args(*args)
             else:
-                argkey = parent.hash_args(*args,**kwargs)
+                argkey = parent.hash_args(*args, **kwargs)
                 
-            if argkey in memoize_cache.keys():
-                return memoize_cache[argkey]
+            if argkey in MEMOIZE_CACHE.keys():
+                return MEMOIZE_CACHE[argkey]
             else:
                 ret = function(*args, **kwargs)
-                memoize_cache[argkey] = ret
+                MEMOIZE_CACHE[argkey] = ret
                 return ret
             
         return new_f
