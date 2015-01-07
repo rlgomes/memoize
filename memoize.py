@@ -20,8 +20,9 @@ class memoize(object):
         self.__f = function
         self.__f_get = self.__f.__get__
    
-    def __call__(self, *args, **kwargs): 
-        argkey = (str(args), str(kwargs))
+    def __call__(self, *args, **kwargs):
+        func_name = getattr(self.__f, '__name__', None) or self.__f.func_name
+        argkey = (func_name, str(args), str(kwargs))
             
         if argkey in MEMOIZE_CACHE.keys():
             return MEMOIZE_CACHE[argkey]
