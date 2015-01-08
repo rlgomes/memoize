@@ -1,6 +1,8 @@
 Introduction
 ------------
 
+[![Build Status](https://travis-ci.org/rlgomes/memoize.png)](https://travis-ci.org/rlgomes/memoize)
+
 Using memoize
 -------------
 
