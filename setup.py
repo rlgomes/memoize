@@ -11,5 +11,5 @@ setup (
     py_modules = ['memoize'],
     license='Apache 2.0 License',
     description='',
-    long_description=open('README').read(),
+    long_description=open('README.md').read(),
 )
