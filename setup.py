@@ -1,5 +1,4 @@
-#!/usr/env python
-from distutils.core import setup
+from setuptools import setup
 
 setup (
     name='memoize',
@@ -7,6 +6,7 @@ setup (
     author='Rodney Gomes',
     author_email='rodneygomes@gmail.com',
     url='',
+    test_suite="tests",
     keywords = ['memoize', 'library'],
     py_modules = ['memoize'],
     license='Apache 2.0 License',
