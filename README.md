@@ -8,9 +8,9 @@ Using memoize
 
 From wikipedia:
 
-"In computing, memoization is an optimization technique used primarily to speed 
-up computer programs by having function calls avoid repeating the calculation of
-results for previously processed inputs."
+> In computing, memoization is an optimization technique used primarily to speed 
+> up computer programs by having function calls avoid repeating the calculation of
+> results for previously processed inputs.
 
 The memoize library can be used to quickly add the memoization feature to any 
 existing function so that you can cache previously calculated results for the 
@@ -109,11 +109,15 @@ hashing function.
 Installing
 ----------
 
+```
 python setup.py install
+```
 
 or install directly from github with:
 
+```
 pip install -e git+git://github.com/rlgomes/memoize.git#egg=memoize
+```
 
 Running Built-In Tests
 -----------------------
@@ -121,8 +125,10 @@ Running Built-In Tests
 After installing the memoize library you can go to the tests directory and run 
 all the tests by executing:
 
+```
 cd tests
 python all_tests.py
+```
 
 License
 -------
