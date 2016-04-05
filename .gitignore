@@ -1,3 +1,6 @@
 /TODO
 /build
 *.pyc
+/dist/*
+/memoize.egg*
+/venv/*

@@ -6,6 +6,8 @@ transformation to be used when identify that the arguments being passed to your
 function are indeed the same argument combination that was used a while ago.
 """
 
+import functools
+
 global MEMOIZE_CACHE
 MEMOIZE_CACHE = {}
 
@@ -19,6 +21,7 @@ class memoize(object):
     def __init__(self, function):
         self.__f = function
         self.__f_get = self.__f.__get__
+        functools.update_wrapper(self, function)
    
     def __call__(self, *args, **kwargs):
         func_name = getattr(self.__f, '__name__', None) or self.__f.func_name
