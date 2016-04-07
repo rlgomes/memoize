@@ -119,6 +119,12 @@ or install directly from github with:
 pip install -e git+git://github.com/rlgomes/memoize.git#egg=memoize
 ```
 
+or install from pip with:
+
+```
+pip install memoize2
+```
+
 Running Built-In Tests
 -----------------------
 
