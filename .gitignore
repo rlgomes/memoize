@@ -4,3 +4,4 @@
 /dist/*
 /memoize.egg*
 /venv/*
+/*.egg-info/*
